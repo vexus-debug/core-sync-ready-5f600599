@@ -37,7 +37,7 @@ const Privacy = () => {
       </section>
 
       {/* Content */}
-      <section className="relative overflow-hidden py-20">
+      <section className="relative site-section-light overflow-hidden py-20">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
         <div className="container relative z-10">
           <div className="mx-auto max-w-3xl space-y-10">

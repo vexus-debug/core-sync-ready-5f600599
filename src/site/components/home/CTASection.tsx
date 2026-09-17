@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative site-section-tint overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/30 via-background to-muted/10" />
       <div className="pointer-events-none absolute left-1/2 bottom-0 h-[400px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
       <div className="container relative z-10">

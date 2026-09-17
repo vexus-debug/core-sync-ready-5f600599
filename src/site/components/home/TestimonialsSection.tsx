@@ -27,7 +27,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative site-section-light overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-muted/20" />
       <div className="pointer-events-none absolute left-0 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 

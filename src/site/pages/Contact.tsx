@@ -57,7 +57,7 @@ const Contact = () => {
       </section>
 
       {/* Form + Info */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative site-section-light overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
         <div className="pointer-events-none absolute -right-32 top-1/4 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
 

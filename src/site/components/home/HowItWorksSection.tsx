@@ -21,7 +21,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative site-section-tint overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-secondary/20" />
 
       <div className="container relative z-10">
