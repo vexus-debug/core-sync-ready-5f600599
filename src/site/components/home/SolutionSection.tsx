@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Clock, TrendingUp, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import appointmentsScreenshot from "@/assets/eye-sales/appointments.png";
+import dashboardScreenshot from "@/assets/eye-sales/dashboard.png";
+import overviewScreenshot from "@/assets/eye-sales/eye-overview.png";
 
 const results = [
   {
@@ -10,6 +13,8 @@ const results = [
     value: "40%",
     sub: "Fewer no-shows — patients get reminded automatically so they actually show up",
     color: "from-[hsl(var(--primary))] to-[hsl(var(--medical-teal))]",
+    image: appointmentsScreenshot,
+    imageAlt: "Eye clinic appointments and patient schedule in Clinexus",
   },
   {
     icon: TrendingUp,
@@ -17,6 +22,8 @@ const results = [
     value: "100%",
     sub: "Know exactly what you earned, what's owed, and who's making you the most money",
     color: "from-[hsl(var(--primary))] to-[hsl(var(--primary))]/60",
+    image: dashboardScreenshot,
+    imageAlt: "Eye clinic dashboard showing revenue and performance in Clinexus",
   },
   {
     icon: ShieldCheck,
@@ -24,10 +31,14 @@ const results = [
     value: "9 Roles",
     sub: "Every staff member sees only what they need — no more, no less",
     color: "from-[hsl(var(--medical-teal))] to-[hsl(var(--primary))]",
+    image: overviewScreenshot,
+    imageAlt: "Clinexus eye clinic overview with role-specific operational information",
   },
 ];
 
 const SolutionSection = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className="relative site-section-light overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
@@ -61,25 +72,40 @@ const SolutionSection = () => {
             </Link>
           </motion.div>
 
-          <div className="relative flex flex-col items-end gap-5">
+          <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
             {results.map((result, i) => (
               <motion.div
                 key={result.label}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 50, rotate: 1.5 }}
+                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="w-full max-w-xs rounded-2xl border border-border/50 bg-card/60 p-6 shadow-lg backdrop-blur-sm"
-                style={{ marginRight: i === 1 ? 40 : 0 }}
+                transition={{ duration: 0.55, delay: reduceMotion ? 0 : i * 0.14 }}
+                whileHover={reduceMotion ? undefined : { y: -6 }}
+                className={`group w-full overflow-hidden rounded-2xl border border-border/50 bg-card/60 shadow-lg backdrop-blur-sm lg:max-w-md ${i === 1 ? "lg:-translate-x-10" : ""}`}
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5">
-                  <result.icon className="h-5 w-5 text-primary" />
+                <div className="relative aspect-[16/7] overflow-hidden border-b border-border/50 bg-muted/50">
+                  <motion.img
+                    src={result.image}
+                    alt={result.imageAlt}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top"
+                    initial={reduceMotion ? undefined : { scale: 1.06 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.9, delay: reduceMotion ? 0 : 0.12 + i * 0.14 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/35 to-transparent" />
                 </div>
-                <div className="mb-1 text-sm text-muted-foreground">{result.label}</div>
-                <div className={`bg-gradient-to-r ${result.color} bg-clip-text text-4xl font-extrabold text-transparent`}>
-                  {result.value}
+                <div className="p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5">
+                    <result.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="mb-1 text-sm text-muted-foreground">{result.label}</div>
+                  <div className={`bg-gradient-to-r ${result.color} bg-clip-text text-4xl font-extrabold text-transparent`}>
+                    {result.value}
+                  </div>
+                  <div className="mt-1 text-xs text-muted-foreground">{result.sub}</div>
                 </div>
-                <div className="mt-1 text-xs text-muted-foreground">{result.sub}</div>
               </motion.div>
             ))}
           </div>
