@@ -4,7 +4,7 @@ import profitabilityScreenshot from "@/assets/site/profitability-screenshot.png"
 
 const AnalyzeSection = () => {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative site-section-light overflow-hidden py-20 md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-secondary/20" />
       <div className="pointer-events-none absolute left-1/4 top-0 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
       <div className="container relative z-10">

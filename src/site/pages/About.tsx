@@ -83,7 +83,7 @@ const About = () => {
       </section>
 
       {/* Story */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative site-section-light overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
         <div className="container relative z-10">
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -150,7 +150,7 @@ const About = () => {
       </section>
 
       {/* Mission / Vision / Commitment */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative site-section-tint overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-14 text-center">
@@ -208,7 +208,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative site-section-light overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/40 via-background to-muted/30" />
         <div className="container relative z-10">
           <motion.div
